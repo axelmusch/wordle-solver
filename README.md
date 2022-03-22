@@ -1,2 +1,2 @@
-# wordle-solver
+# crappy python wordle-solver
  
