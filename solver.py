@@ -1,6 +1,6 @@
 import random
 import sys
-currentWord = "slosh"
+currentWord = "start"
 #https://www.nytimes.com/games/wordle/index.html
 
 import requests
@@ -24,10 +24,48 @@ results = soup.find_all('body')
     #print(child)
 
 from selenium import webdriver
-driver = webdriver.Chrome('./chromedriver')
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from pyautogui import press, typewrite, hotkey
+import time
 
-    #self.open("https://www.nytimes.com/games/wordle/index.html")
-    #self.click("game-app::shadow game-modal::shadow game-icon")
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver.get("https://www.nytimes.com/games/wordle/index.html")
+search_box = driver.find_element_by_id('pz-gdpr-btn-accept').click()
+
+host = driver.find_element(By.TAG_NAME, 'game-app')
+shadowRoot = driver.execute_script("return arguments[0].shadowRoot", host)
+
+modelHost = shadowRoot.find_element(By.TAG_NAME, 'game-modal')
+modalRoot = driver.execute_script("return arguments[0].shadowRoot", modelHost)
+
+modalRoot.find_element(By.CLASS_NAME, 'close-icon').click()
+
+
+typewrite('rates')
+driver.implicitly_wait(0.5)
+press('enter')
+time.sleep(3)
+
+board = shadowRoot.find_element(By.ID, 'board')
+
+rowHost = board.find_element(By.TAG_NAME, 'game-row')
+rowRoot = driver.execute_script("return arguments[0].shadowRoot", rowHost)
+
+row = rowRoot.find_element(By.CLASS_NAME, 'row')
+
+tileHost = row.find_element(By.TAG_NAME, 'game-tile')
+tileRoot = driver.execute_script("return arguments[0].shadowRoot", tileHost)
+
+tile = rowRoot.find_element(By.CLASS_NAME, 'row')
+
+rowHTML = tile.get_attribute('innerHTML')
+evalu = rowHTML.split("</game-tile>") 
+print('tile--> ',evalu)
+#print('tile--> ',tile.value_of_css_property('color'))
+
 
 
 def load_words(WORDLIST_FILENAME):
@@ -50,6 +88,7 @@ wordlist = load_words('words.txt')
 
 guess1 = "sloan"
 
+#driver.quit()
 
 guess_letters_good = list()
 guess_letters_badPlace = [list(),list(),list(),list(),list()]
@@ -57,7 +96,7 @@ guess_letters_bad = list()
 guess_letters_place = ["-","-","-","-","-"]
 square_array = list()
 
-for guessCount in range(1, 7):
+for guessCount in range(1, 1):
     squareString = "-"
     print('__________________________________')
     print("start guess %d" % (guessCount))
