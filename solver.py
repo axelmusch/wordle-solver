@@ -11,18 +11,6 @@ from urllib.request import urlretrieve
 import cgi
 
 
-URL = "https://www.nytimes.com/games/wordle/index.html"
-page = requests.get(URL)
-
-soup = BeautifulSoup(page.content, "html.parser")
-#print(soup)
-
-results = soup.find_all('body')
-
-#print ('results',results)
-#for child in results[0].children:
-    #print(child)
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -33,6 +21,8 @@ import time
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("https://www.nytimes.com/games/wordle/index.html")
+time.sleep(0.25)
+
 search_box = driver.find_element_by_id('pz-gdpr-btn-accept').click()
 
 host = driver.find_element(By.TAG_NAME, 'game-app')
@@ -40,31 +30,9 @@ shadowRoot = driver.execute_script("return arguments[0].shadowRoot", host)
 
 modelHost = shadowRoot.find_element(By.TAG_NAME, 'game-modal')
 modalRoot = driver.execute_script("return arguments[0].shadowRoot", modelHost)
-
+time.sleep(0.25)
 modalRoot.find_element(By.CLASS_NAME, 'close-icon').click()
-
-
-typewrite('rates')
-driver.implicitly_wait(0.5)
-press('enter')
-time.sleep(3)
-
-board = shadowRoot.find_element(By.ID, 'board')
-
-rowHost = board.find_element(By.TAG_NAME, 'game-row')
-rowRoot = driver.execute_script("return arguments[0].shadowRoot", rowHost)
-
-row = rowRoot.find_element(By.CLASS_NAME, 'row')
-
-tileHost = row.find_element(By.TAG_NAME, 'game-tile')
-tileRoot = driver.execute_script("return arguments[0].shadowRoot", tileHost)
-
-tile = rowRoot.find_element(By.CLASS_NAME, 'row')
-
-rowHTML = tile.get_attribute('innerHTML')
-evalu = rowHTML.split("</game-tile>") 
-print('tile--> ',evalu)
-#print('tile--> ',tile.value_of_css_property('color'))
+time.sleep(0.25)
 
 
 
@@ -85,8 +53,8 @@ def choose_word (wordlist):
        return random.choice (wordlist)
 
 wordlist = load_words('words.txt')
-
-guess1 = "sloan"
+guesses = list()
+guess1 = "press"
 
 #driver.quit()
 
@@ -96,30 +64,49 @@ guess_letters_bad = list()
 guess_letters_place = ["-","-","-","-","-"]
 square_array = list()
 
-for guessCount in range(1, 1):
+for guessCount in range(1, 7):
     squareString = "-"
     print('__________________________________')
     print("start guess %d" % (guessCount))
     count = 1
-    for i in guess1:
-        if i in currentWord:
-           
-            if i not in guess_letters_good:
-                guess_letters_good.append(i)
-            if i == currentWord[count-1]:
-                #print(i, " correct letter at place " ,count)
-                guess_letters_place[count-1] = i
-                squareString += 'green'
-            else:
-                #print(i, " correct letter wrong place ")
-                squareString += 'yellow'
-                if i not in guess_letters_badPlace[count-1]:
-                    guess_letters_badPlace[count-1].append(i)
+
+    typewrite(guess1)
+    time.sleep(0.5)
+    press('enter')
+    time.sleep(2)
+
+    board = shadowRoot.find_element(By.ID, 'board')
+    rowElems = board.find_elements(By.TAG_NAME,"game-row")
+    rowRoot = driver.execute_script("return arguments[0].shadowRoot", rowElems[guessCount-1])
+    row2 = rowRoot.find_element(By.CLASS_NAME, 'row')
+    tileElems = row2.find_elements(By.TAG_NAME,"game-tile")
+    correctLetters = 0  
+    for idx,tile in enumerate(tileElems,start=0):
+        evaluation = tile.get_attribute('evaluation')
+        letter = tile.get_attribute('letter')
+
+        if evaluation == "correct":
+            print(letter, ' --> correct')
+            correctLetters += 1
+            if letter not in guess_letters_good:
+                guess_letters_good.append(letter)
+            guess_letters_place[idx] = letter
+
+        elif evaluation == "present":
+            print(letter, ' --> present')
+            if letter not in guess_letters_good:
+                guess_letters_good.append(letter)
+            if letter not in guess_letters_badPlace[idx]:
+                guess_letters_badPlace[idx].append(letter)
+
+        elif evaluation == "absent":
+            print(letter, ' --> absent')
+            if letter not in guess_letters_bad and letter not in guess_letters_good:
+                guess_letters_bad.append(letter)
         else:
-            squareString += 'black'
-            if i not in guess_letters_bad:
-                guess_letters_bad.append(i)
-        count = count +1
+            print('tbd')
+
+   
 
     print(squareString)
     print(guess_letters_place)
@@ -156,15 +143,24 @@ for guessCount in range(1, 1):
                 if badletter in word:
                     checkBadLetter = False
             if checkBadLetter == True:
-                newlist.append(word)
+                canAddWord = True
+                for idx,position in enumerate(guess_letters_badPlace,start=0):
+                    for letter in position:
+                        if letter == word[idx]:
+                            print(letter, "cant be in spot ", idx+1)
+                            print(word, "not valid")
+                            canAddWord = False
+                if canAddWord == True and word not in guesses:
+                    newlist.append(word)
 
     print('possible words after guess %d :' % (guessCount), guess1)    
     print(newlist)
-    newguess = random.choice(newlist)
-   
-    print("chosen word for guess %d: " % (guessCount+1), newguess)
-    guess1 = newguess
-    if newguess == currentWord:
+    
+    
+    if correctLetters == 5:
         print("word found after %d guesses: " % (guessCount+1), newguess)
         break
-    
+    guesses.append(guess1)
+    newguess = random.choice(newlist)
+    print("chosen word for guess %d: " % (guessCount+1), newguess)
+    guess1 = newguess
