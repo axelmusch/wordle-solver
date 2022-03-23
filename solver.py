@@ -1,20 +1,12 @@
+"""A dummy docstring."""
 import random
-import sys
-
-import requests
-from bs4 import BeautifulSoup
-
-from urllib.request import urlopen
-from urllib.request import urlretrieve
-import cgi
+import time
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from pyautogui import press, typewrite, hotkey
-import time
+from webdriver_manager.chrome import ChromeDriverManager
+from pyautogui import press, typewrite
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("https://www.nytimes.com/games/wordle/index.html")
@@ -32,20 +24,19 @@ modalRoot.find_element(By.CLASS_NAME, 'close-icon').click()
 time.sleep(0.25)
 
 def load_words(WORDLIST_FILENAME):
-       print ("Loading word list from file...")
-       wordlist = list()
-       # 'with' can automate finish 'open' and 'close' file
-       with open(WORDLIST_FILENAME) as f:
-            # fetch one line each time, include '\n'
-            for line in f:
-                # strip '\n', then append it to wordlist
-                wordlist.append(line.rstrip('\n'))
-       print (" ", len(wordlist), "words loaded.")
-       #print ('\n'.join(wordlist))
-       return wordlist
+    """load words"""
+    print ("Loading word list from file...")
+    wordlist = list()
+    # 'with' can automate finish 'open' and 'close' file
+    with open(WORDLIST_FILENAME) as f:
+        # fetch one line each time, include '\n'
+        for line in f:
+            # strip '\n', then append it to wordlist
+            wordlist.append(line.rstrip('\n'))
+    print (" ", len(wordlist), "words loaded.")
+    #print ('\n'.join(wordlist))
+    return wordlist
 
-def choose_word (wordlist):
-       return random.choice (wordlist)
 
 wordlist = load_words('words.txt')
 guesses = list()
@@ -75,7 +66,7 @@ for guessCount in range(1, 7):
     rowRoot = driver.execute_script("return arguments[0].shadowRoot", rowElems[guessCount-1])
     row2 = rowRoot.find_element(By.CLASS_NAME, 'row')
     tileElems = row2.find_elements(By.TAG_NAME,"game-tile")
-    correctLetters = 0  
+    correctLetters = 0
     for idx,tile in enumerate(tileElems,start=0):
         evaluation = tile.get_attribute('evaluation')
         letter = tile.get_attribute('letter')
@@ -117,7 +108,7 @@ for guessCount in range(1, 7):
                 matchall.append(False)
         for idx,letter in enumerate(guess_letters_place,start=0):
             #print(idx, letter)
-            
+
             if letter != "-":
                 if letter == word[idx]:
                     #print("start with correct letter", word)
@@ -127,15 +118,15 @@ for guessCount in range(1, 7):
 
         checkAll = True
         for val in matchall:
-            if val == False:
+            if val is False:
                 checkAll = False
 
-        if checkAll == True:
+        if checkAll is True:
             checkBadLetter = True
             for badletter in guess_letters_bad:
                 if badletter in word:
                     checkBadLetter = False
-            if checkBadLetter == True:
+            if checkBadLetter is True:
                 canAddWord = True
                 for idx,position in enumerate(guess_letters_badPlace,start=0):
                     for letter in position:
@@ -143,13 +134,12 @@ for guessCount in range(1, 7):
                             print(letter, "cant be in spot ", idx+1)
                             print(word, "not valid")
                             canAddWord = False
-                if canAddWord == True and word not in guesses:
+                if canAddWord is True and word not in guesses:
                     newlist.append(word)
 
     print('possible words after guess %d :' % (guessCount), guess1)    
     print(newlist)
-    
-    
+
     if correctLetters == 5:
         print("word found after %d guesses: " % (guessCount+1), newguess)
         break
