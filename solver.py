@@ -1,7 +1,5 @@
 import random
 import sys
-currentWord = "start"
-#https://www.nytimes.com/games/wordle/index.html
 
 import requests
 from bs4 import BeautifulSoup
@@ -9,7 +7,6 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from urllib.request import urlretrieve
 import cgi
-
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -34,8 +31,6 @@ time.sleep(0.25)
 modalRoot.find_element(By.CLASS_NAME, 'close-icon').click()
 time.sleep(0.25)
 
-
-
 def load_words(WORDLIST_FILENAME):
        print ("Loading word list from file...")
        wordlist = list()
@@ -54,7 +49,7 @@ def choose_word (wordlist):
 
 wordlist = load_words('words.txt')
 guesses = list()
-guess1 = "press"
+guess1 = "sloan"
 
 #driver.quit()
 
@@ -105,8 +100,6 @@ for guessCount in range(1, 7):
                 guess_letters_bad.append(letter)
         else:
             print('tbd')
-
-   
 
     print(squareString)
     print(guess_letters_place)
