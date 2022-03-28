@@ -38,9 +38,9 @@ def load_words(WORDLIST_FILENAME):
     return wordlist
 
 
-wordlist = load_words('words.txt')
+wordlist = load_words('./words.txt')
 guesses = list()
-guess1 = "sloan"
+guess1 = "crane"
 
 #driver.quit()
 
