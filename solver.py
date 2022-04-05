@@ -40,7 +40,7 @@ def load_words(WORDLIST_FILENAME):
 
 wordlist = load_words('./words.txt')
 guesses = list()
-guess1 = "crane"
+guess1 = "sloan"
 
 #driver.quit()
 
