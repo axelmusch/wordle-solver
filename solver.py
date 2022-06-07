@@ -131,7 +131,7 @@ for guessCount in range(1, 7):
                 for idx,position in enumerate(guess_letters_badPlace,start=0):
                     for letter in position:
                         if letter == word[idx]:
-                            print(letter, "cant be in spot ", idx+1)
+                            print(letter, "cant be in spot ", idx + 1)
                             print(word, "not valid")
                             canAddWord = False
                 if canAddWord is True and word not in guesses:
