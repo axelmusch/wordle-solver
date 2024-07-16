@@ -10,19 +10,19 @@ from pyautogui import press, typewrite
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("https://www.nytimes.com/games/wordle/index.html")
-time.sleep(0.25)
 
-search_box = driver.find_element_by_id('pz-gdpr-btn-accept').click()
+time.sleep(2)
+search_box = driver.find_element(By.XPATH,'//button[@data-testid="Play"]').click()
+time.sleep(1)
+search_box = driver.find_element(By.XPATH,'//button[@aria-label="Close"]').click()
+time.sleep(1)
 
-host = driver.find_element(By.TAG_NAME, 'game-app')
+host = driver.find_element(By.ID, 'wordle-app-game')
 shadowRoot = driver.execute_script("return arguments[0].shadowRoot", host)
 
-modelHost = shadowRoot.find_element(By.TAG_NAME, 'game-modal')
-modalRoot = driver.execute_script("return arguments[0].shadowRoot", modelHost)
-time.sleep(0.25)
-modalRoot.find_element(By.CLASS_NAME, 'close-icon').click()
-time.sleep(0.25)
-
+#modelHost = shadowRoot.find_element(By.TAG_NAME, 'game-modal')
+#modalRoot = driver.execute_script("return arguments[0].shadowRoot", modelHost)
+#modalRoot.find_element(By.CLASS_NAME, 'close-icon').click()
 def load_words(WORDLIST_FILENAME):
     """load words"""
     print ("Loading word list from file...")
@@ -40,7 +40,7 @@ def load_words(WORDLIST_FILENAME):
 
 wordlist = load_words('./words.txt')
 guesses = list()
-guess1 = "sloan"
+guess1 = "suave"
 
 #driver.quit()
 
@@ -55,21 +55,26 @@ for guessCount in range(1, 7):
     print('__________________________________')
     print("start guess %d" % (guessCount))
     count = 1
+    
 
     typewrite(guess1)
     time.sleep(0.5)
     press('enter')
     time.sleep(2)
 
-    board = shadowRoot.find_element(By.ID, 'board')
-    rowElems = board.find_elements(By.TAG_NAME,"game-row")
-    rowRoot = driver.execute_script("return arguments[0].shadowRoot", rowElems[guessCount-1])
-    row2 = rowRoot.find_element(By.CLASS_NAME, 'row')
-    tileElems = row2.find_elements(By.TAG_NAME,"game-tile")
+   #board = host.find_element(By.ID, 'board')
+    #rowElems = host.find_elements(By.XPATH,'//div[@role="group"]')
+    #rowRoot = driver.execute_script("return arguments[0].shadowRoot", rowElems[guessCount-1])
+    row2 = host.find_element(By.XPATH,'//div[@aria-label="Row ' + str(guessCount) + '"]')
+    print("----- row x")
+    print('//div[@aria-label="Row ' + str(guessCount) + '"]')
+    print(row2)
+    tileElems = row2.find_elements(By.XPATH,'//div[@aria-label="Row ' + str(guessCount) + '"]/div/div[@data-testid="tile"]')
     correctLetters = 0
     for idx,tile in enumerate(tileElems,start=0):
-        evaluation = tile.get_attribute('evaluation')
-        letter = tile.get_attribute('letter')
+        evaluation = tile.get_attribute('data-state')
+        
+        letter = tile.get_attribute('innerHTML')
 
         if evaluation == "correct":
             print(letter, ' --> correct')
@@ -131,17 +136,18 @@ for guessCount in range(1, 7):
                 for idx,position in enumerate(guess_letters_badPlace,start=0):
                     for letter in position:
                         if letter == word[idx]:
-                            print(letter, "cant be in spot ", idx + 1)
-                            print(word, "not valid")
+                            #print(letter, "cant be in spot ", idx + 1)
+                            #print(word, "not valid")
                             canAddWord = False
                 if canAddWord is True and word not in guesses:
                     newlist.append(word)
 
     print('possible words after guess %d :' % (guessCount), guess1)    
-    print(newlist)
+    #print(newlist)
 
     if correctLetters == 5:
-        print("word found after %d guesses: " % (guessCount+1), newguess)
+        print("word found after %d guesses: " % (guessCount), newguess)
+        time.sleep(10)
         break
     guesses.append(guess1)
     newguess = random.choice(newlist)
