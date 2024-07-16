@@ -1,46 +1,55 @@
-"""A dummy docstring."""
 import random
 import time
 
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from pyautogui import press, typewrite
 
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+options  = Options()
+options.add_argument("window-size=1200,1400")
+driver = webdriver.Chrome(options=options,service=Service(ChromeDriverManager().install()))
 driver.get("https://www.nytimes.com/games/wordle/index.html")
 
 time.sleep(2)
+search_box = driver.find_element(By.XPATH,'//button[@data-testid="Accept all-btn"]').click()
+time.sleep(0.25)
 search_box = driver.find_element(By.XPATH,'//button[@data-testid="Play"]').click()
-time.sleep(1)
+time.sleep(0.25)
 search_box = driver.find_element(By.XPATH,'//button[@aria-label="Close"]').click()
-time.sleep(1)
+time.sleep(0.25)
 
 host = driver.find_element(By.ID, 'wordle-app-game')
-shadowRoot = driver.execute_script("return arguments[0].shadowRoot", host)
 
-#modelHost = shadowRoot.find_element(By.TAG_NAME, 'game-modal')
-#modalRoot = driver.execute_script("return arguments[0].shadowRoot", modelHost)
-#modalRoot.find_element(By.CLASS_NAME, 'close-icon').click()
-def load_words(WORDLIST_FILENAME):
+def load_words(wordlist_filename):
     """load words"""
     print ("Loading word list from file...")
-    wordlist = list()
+    temp_wordlist = list()
     # 'with' can automate finish 'open' and 'close' file
-    with open(WORDLIST_FILENAME) as f:
+    with open(wordlist_filename,encoding="utf-8") as f:
         # fetch one line each time, include '\n'
         for line in f:
             # strip '\n', then append it to wordlist
-            wordlist.append(line.rstrip('\n'))
-    print (" ", len(wordlist), "words loaded.")
+            temp_wordlist.append(line.rstrip('\n'))
+    print (" ", len(temp_wordlist), "words loaded.")
     #print ('\n'.join(wordlist))
-    return wordlist
+    return temp_wordlist
 
+def pick_highest(obj, num=1):
+    """Returns 5 most used letters"""
+    if num > len(obj):
+        return False
+    sorted_keys = sorted(obj, key=obj.get, reverse=True)
+    required_obj = {key: obj[key] for key, ind in zip(sorted_keys, range(num))}
+    return required_obj
 
 wordlist = load_words('./words.txt')
 guesses = list()
-guess1 = "suave"
+LETTERS = "abcdefghijklmnopqrstuvwxyz".split()
+print(LETTERS)
+GUESS1 = "suave"
 
 #driver.quit()
 
@@ -51,34 +60,22 @@ guess_letters_place = ["-","-","-","-","-"]
 square_array = list()
 
 for guessCount in range(1, 7):
-    squareString = "-"
     print('__________________________________')
-    print("start guess %d" % (guessCount))
-    count = 1
-    
-
-    typewrite(guess1)
+    print(f"GUESS {guessCount}")
+    typewrite(GUESS1)
     time.sleep(0.5)
     press('enter')
     time.sleep(2)
-
-   #board = host.find_element(By.ID, 'board')
-    #rowElems = host.find_elements(By.XPATH,'//div[@role="group"]')
-    #rowRoot = driver.execute_script("return arguments[0].shadowRoot", rowElems[guessCount-1])
     row2 = host.find_element(By.XPATH,'//div[@aria-label="Row ' + str(guessCount) + '"]')
-    print("----- row x")
-    print('//div[@aria-label="Row ' + str(guessCount) + '"]')
-    print(row2)
     tileElems = row2.find_elements(By.XPATH,'//div[@aria-label="Row ' + str(guessCount) + '"]/div/div[@data-testid="tile"]')
-    correctLetters = 0
+    CORRECTED_LETTERS = 0
     for idx,tile in enumerate(tileElems,start=0):
         evaluation = tile.get_attribute('data-state')
-        
         letter = tile.get_attribute('innerHTML')
 
         if evaluation == "correct":
             print(letter, ' --> correct')
-            correctLetters += 1
+            CORRECTED_LETTERS += 1
             if letter not in guess_letters_good:
                 guess_letters_good.append(letter)
             guess_letters_place[idx] = letter
@@ -97,14 +94,12 @@ for guessCount in range(1, 7):
         else:
             print('tbd')
 
-    print(squareString)
     print(guess_letters_place)
     print("good letters",guess_letters_good)
     print("goodbad letters",guess_letters_badPlace)
     print("bad letters",guess_letters_bad)
 
     newlist = list()
-
     for word in wordlist:
         matchall = list()
 
@@ -121,35 +116,59 @@ for guessCount in range(1, 7):
                 else:
                     matchall.append(False)
 
-        checkAll = True
+        CHECK_ALL = True
         for val in matchall:
             if val is False:
-                checkAll = False
+                CHECK_ALL = False
 
-        if checkAll is True:
-            checkBadLetter = True
+        if CHECK_ALL is True:
+            CHECK_BAD_LETTER = True
             for badletter in guess_letters_bad:
                 if badletter in word:
-                    checkBadLetter = False
-            if checkBadLetter is True:
-                canAddWord = True
+                    CHECK_BAD_LETTER = False
+            if CHECK_BAD_LETTER is True:
+                CAN_ADD_WORD = True
                 for idx,position in enumerate(guess_letters_badPlace,start=0):
                     for letter in position:
                         if letter == word[idx]:
                             #print(letter, "cant be in spot ", idx + 1)
                             #print(word, "not valid")
-                            canAddWord = False
-                if canAddWord is True and word not in guesses:
+                            CAN_ADD_WORD = False
+                if CAN_ADD_WORD is True and word not in guesses:
                     newlist.append(word)
-
-    print('possible words after guess %d :' % (guessCount), guess1)    
+    print(f"possible words after guess {guessCount} : ", GUESS1)
     #print(newlist)
+    guesses.append(GUESS1)
+    commonletters = {}
+    #put selector logic
+    for word in newlist:
+        for letter in word:
+            if letter in commonletters:
+                commonletters[letter] +=1
+            else:
+                commonletters[letter] =1
+    bestletters = pick_highest(commonletters,5)
 
-    if correctLetters == 5:
-        print("word found after %d guesses: " % (guessCount), newguess)
+    matchCache = list()
+    maxMatch = 0
+    for word in newlist:
+        matchCount = 0
+        for letter in bestletters:
+            if letter in word:
+                matchCount += 1
+        matchCache.append({'word':word, 'matching':matchCount})
+        if matchCount > maxMatch:
+            maxMatch = matchCount
+
+    matchCache = [word['word'] for word in matchCache if word['matching'] == maxMatch]
+
+    #----------
+    print(commonletters)
+    print(matchCache)
+    newguess = random.choice(matchCache)
+    if CORRECTED_LETTERS == 5:
+        print(f"word found after {guessCount} guesses: ", newguess)
         time.sleep(10)
         break
-    guesses.append(guess1)
-    newguess = random.choice(newlist)
-    print("chosen word for guess %d: " % (guessCount+1), newguess)
-    guess1 = newguess
+    print(f"chosen word for guess {guessCount+1}: ", newguess)
+    GUESS1 = newguess
