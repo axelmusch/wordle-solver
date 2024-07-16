@@ -1,6 +1,6 @@
 import random
 import time
-
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -22,6 +22,9 @@ search_box = driver.find_element(By.XPATH,'//button[@aria-label="Close"]').click
 time.sleep(0.25)
 
 host = driver.find_element(By.ID, 'wordle-app-game')
+
+filename = datetime.today().strftime('%d%m%y')
+resultFile = open("results/" + filename + ".txt", "w",encoding="utf-8")
 
 def load_words(wordlist_filename):
     """load words"""
@@ -61,43 +64,55 @@ square_array = list()
 
 for guessCount in range(1, 7):
     print('__________________________________')
+    resultFile.write('__________________________________\n')
     print(f"GUESS {guessCount}")
+    resultFile.write(f"GUESS {guessCount}\n")
     typewrite(GUESS1)
     time.sleep(0.5)
     press('enter')
     time.sleep(2)
     row2 = host.find_element(By.XPATH,'//div[@aria-label="Row ' + str(guessCount) + '"]')
     tileElems = row2.find_elements(By.XPATH,'//div[@aria-label="Row ' + str(guessCount) + '"]/div/div[@data-testid="tile"]')
-    CORRECTED_LETTERS = 0
+    CORRECT_LETTERS = 0
     for idx,tile in enumerate(tileElems,start=0):
         evaluation = tile.get_attribute('data-state')
         letter = tile.get_attribute('innerHTML')
 
         if evaluation == "correct":
-            print(letter, ' --> correct')
-            CORRECTED_LETTERS += 1
+            print(letter, '--> correct')
+            resultFile.write(letter + ' --> correct\n')
+            CORRECT_LETTERS += 1
             if letter not in guess_letters_good:
                 guess_letters_good.append(letter)
             guess_letters_place[idx] = letter
 
         elif evaluation == "present":
-            print(letter, ' --> present')
+            print(letter, '--> present')
+            resultFile.write(letter + ' --> present\n')
             if letter not in guess_letters_good:
                 guess_letters_good.append(letter)
             if letter not in guess_letters_badPlace[idx]:
                 guess_letters_badPlace[idx].append(letter)
 
         elif evaluation == "absent":
-            print(letter, ' --> absent')
+            print(letter, '--> absent')
+            resultFile.write(letter + ' --> absent\n')
             if letter not in guess_letters_bad and letter not in guess_letters_good:
                 guess_letters_bad.append(letter)
         else:
             print('tbd')
 
     print(guess_letters_place)
-    print("good letters",guess_letters_good)
-    print("goodbad letters",guess_letters_badPlace)
-    print("bad letters",guess_letters_bad)
+    resultFile.write(str(guess_letters_place)+"\n")
+
+    print("Good letters",guess_letters_good)
+    resultFile.write("Good letters " + str(guess_letters_good)+"\n")
+
+    print("Good letters but wrong spots ",guess_letters_badPlace)
+    resultFile.write("Good letters but wrong spots" + str(guess_letters_badPlace)+"\n")
+
+    print("Bad  letters",guess_letters_bad)
+    resultFile.write("Bad  letters " + str(guess_letters_bad)+"\n")
 
     newlist = list()
     for word in wordlist:
@@ -107,11 +122,8 @@ for guessCount in range(1, 7):
             if letter not in word:
                 matchall.append(False)
         for idx,letter in enumerate(guess_letters_place,start=0):
-            #print(idx, letter)
-
             if letter != "-":
                 if letter == word[idx]:
-                    #print("start with correct letter", word)
                     matchall.append(True)
                 else:
                     matchall.append(False)
@@ -136,7 +148,9 @@ for guessCount in range(1, 7):
                             CAN_ADD_WORD = False
                 if CAN_ADD_WORD is True and word not in guesses:
                     newlist.append(word)
-    print(f"possible words after guess {guessCount} : ", GUESS1)
+    print(f"possible words after guess {guessCount}: {GUESS1}, {len(newlist)}")
+    resultFile.write(f"possible words after guess {guessCount}: {GUESS1}, {len(newlist)}\n")
+    resultFile.write(str(newlist)+"\n")
     #print(newlist)
     guesses.append(GUESS1)
     commonletters = {}
@@ -163,12 +177,17 @@ for guessCount in range(1, 7):
     matchCache = [word['word'] for word in matchCache if word['matching'] == maxMatch]
 
     #----------
-    print(commonletters)
-    print(matchCache)
+    #print(commonletters)
+    #print(matchCache)
+    resultFile.write(f"Common letters: {str(commonletters)}\n")
+    resultFile.write(f"matchCache: {str(matchCache)}\n")
     newguess = random.choice(matchCache)
-    if CORRECTED_LETTERS == 5:
+    if CORRECT_LETTERS == 5:
         print(f"word found after {guessCount} guesses: ", newguess)
+        resultFile.write(f"word found after {guessCount} guesses: {newguess}")
+        resultFile.close()
         time.sleep(10)
         break
     print(f"chosen word for guess {guessCount+1}: ", newguess)
+    resultFile.write(f"chosen word for guess {guessCount+1}: {newguess}\n")
     GUESS1 = newguess

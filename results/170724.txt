@@ -1,0 +1,64 @@
+__________________________________
+GUESS 1
+s --> absent
+u --> correct
+a --> absent
+v --> absent
+e --> correct
+['-', 'u', '-', '-', 'e']
+Good letters ['u', 'e']
+Good letters but wrong spots[[], [], [], [], []]
+Bad  letters ['s', 'a', 'v']
+possible words after guess 1: suave, 22
+['budge', 'bugle', 'bulge', 'butte', 'cutie', 'dunce', 'fudge', 'fugue', 'guide', 'guile', 'judge', 'juice', 'lunge', 'nudge', 'ounce', 'puree', 'purge', 'queue', 'quite', 'quote', 'rupee', 'tulle']
+Common letters: {'b': 4, 'u': 24, 'd': 6, 'g': 11, 'e': 25, 'l': 6, 't': 6, 'c': 4, 'i': 5, 'n': 4, 'f': 2, 'j': 2, 'o': 2, 'p': 3, 'r': 3, 'q': 3}
+matchCache: ['budge', 'bugle', 'bulge', 'fudge', 'guide', 'guile', 'judge', 'lunge', 'nudge']
+chosen word for guess 2: guile
+__________________________________
+GUESS 2
+g --> absent
+u --> correct
+i --> correct
+l --> absent
+e --> correct
+['-', 'u', 'i', '-', 'e']
+Good letters ['u', 'e', 'i']
+Good letters but wrong spots[[], [], [], [], []]
+Bad  letters ['s', 'a', 'v', 'g', 'l']
+possible words after guess 2: guile, 2
+['juice', 'quite']
+Common letters: {'j': 1, 'u': 2, 'i': 2, 'c': 1, 'e': 2, 'q': 1, 't': 1}
+matchCache: ['juice']
+chosen word for guess 3: juice
+__________________________________
+GUESS 3
+j --> absent
+u --> correct
+i --> correct
+c --> absent
+e --> correct
+['-', 'u', 'i', '-', 'e']
+Good letters ['u', 'e', 'i']
+Good letters but wrong spots[[], [], [], [], []]
+Bad  letters ['s', 'a', 'v', 'g', 'l', 'j', 'c']
+possible words after guess 3: juice, 1
+['quite']
+Common letters: {'q': 1, 'u': 1, 'i': 1, 't': 1, 'e': 1}
+matchCache: ['quite']
+chosen word for guess 4: quite
+__________________________________
+GUESS 4
+q --> correct
+u --> correct
+i --> correct
+t --> correct
+e --> correct
+['q', 'u', 'i', 't', 'e']
+Good letters ['u', 'e', 'i', 'q', 't']
+Good letters but wrong spots[[], [], [], [], []]
+Bad  letters ['s', 'a', 'v', 'g', 'l', 'j', 'c']
+possible words after guess 4: quite, 1
+['quite']
+Common letters: {'q': 1, 'u': 1, 'i': 1, 't': 1, 'e': 1}
+matchCache: ['quite']
+word found after 4 guesses: quite
