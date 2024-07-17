@@ -1,1 +1,0 @@
-__________________________________GUESS 1s --> absentu --> absenta --> absentv --> absente --> present['-', '-', '-', '-', '-']
