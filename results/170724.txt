@@ -1,0 +1,68 @@
+__________________________________
+GUESS 1
+⬛🟩⬛⬛🟩
+['-', 'u', '-', '-', 'e']
+Good letters: ['u', 'e']
+Good letters but wrong spots : [[], [], [], [], []]
+Bad  letters : ['s', 'a', 'v']
+possible words after guess 1: suave, 22
+['budge', 'bugle', 'bulge', 'butte', 'cutie', 'dunce', 'fudge', 'fugue', 'guide', 'guile', 'judge', 'juice', 'lunge', 'nudge', 'ounce', 'puree', 'purge', 'queue', 'quite', 'quote', 'rupee', 'tulle']
+Common letters: {'b': 4, 'u': 24, 'd': 6, 'g': 11, 'e': 25, 'l': 6, 't': 6, 'c': 4, 'i': 5, 'n': 4, 'f': 2, 'j': 2, 'o': 2, 'p': 3, 'r': 3, 'q': 3}
+Best 5 letters(4 matching): {'e': 25, 'u': 24, 'g': 11, 'd': 6, 'l': 6}
+Best letters per spot {0: {'b': 3, 'f': 1, 'g': 2, 'j': 1, 'l': 1, 'n': 1}, 1: {'u': 9}, 2: {'d': 4, 'g': 1, 'l': 1, 'i': 2, 'n': 1}, 3: {'g': 6, 'l': 2, 'd': 1}, 4: {'e': 9}}
+Best 5 letters per spot(5 matching) [{'b': 3}, {'u': 9}, {'d': 4}, {'g': 6}, {'e': 9}]
+match cache 2 filtered ['budge']
+Common letters: {'b': 4, 'u': 24, 'd': 6, 'g': 11, 'e': 25, 'l': 6, 't': 6, 'c': 4, 'i': 5, 'n': 4, 'f': 2, 'j': 2, 'o': 2, 'p': 3, 'r': 3, 'q': 3}
+matchCache: ['budge', 'bugle', 'bulge', 'fudge', 'guide', 'guile', 'judge', 'lunge', 'nudge']
+chosen word for guess 2: budge
+__________________________________
+GUESS 2
+⬛🟩⬛⬛🟩
+['-', 'u', '-', '-', 'e']
+Good letters: ['u', 'e']
+Good letters but wrong spots : [[], [], [], [], []]
+Bad  letters : ['s', 'a', 'v', 'b', 'd', 'g']
+possible words after guess 2: budge, 9
+['cutie', 'juice', 'ounce', 'puree', 'queue', 'quite', 'quote', 'rupee', 'tulle']
+Common letters: {'c': 3, 'u': 10, 't': 4, 'i': 3, 'e': 12, 'j': 1, 'o': 2, 'n': 1, 'p': 2, 'r': 2, 'q': 3, 'l': 2}
+Best 5 letters(5 matching): {'e': 12, 'u': 10, 't': 4, 'c': 3, 'i': 3}
+Best letters per spot {0: {'c': 1}, 1: {'u': 1}, 2: {'t': 1}, 3: {'i': 1}, 4: {'e': 1}}
+Best 5 letters per spot(5 matching) [{'c': 1}, {'u': 1}, {'t': 1}, {'i': 1}, {'e': 1}]
+match cache 2 filtered ['cutie']
+Common letters: {'c': 3, 'u': 10, 't': 4, 'i': 3, 'e': 12, 'j': 1, 'o': 2, 'n': 1, 'p': 2, 'r': 2, 'q': 3, 'l': 2}
+matchCache: ['cutie']
+chosen word for guess 3: cutie
+__________________________________
+GUESS 3
+⬛🟩🟨🟨🟩
+['-', 'u', '-', '-', 'e']
+Good letters: ['u', 'e', 't', 'i']
+Good letters but wrong spots : [[], [], ['t'], ['i'], []]
+Bad  letters : ['s', 'a', 'v', 'b', 'd', 'g', 'c']
+possible words after guess 3: cutie, 1
+['quite']
+Common letters: {'q': 1, 'u': 1, 'i': 1, 't': 1, 'e': 1}
+Best 5 letters(5 matching): {'q': 1, 'u': 1, 'i': 1, 't': 1, 'e': 1}
+Best letters per spot {0: {'q': 1}, 1: {'u': 1}, 2: {'i': 1}, 3: {'t': 1}, 4: {'e': 1}}
+Best 5 letters per spot(5 matching) [{'q': 1}, {'u': 1}, {'i': 1}, {'t': 1}, {'e': 1}]
+match cache 2 filtered ['quite']
+Common letters: {'q': 1, 'u': 1, 'i': 1, 't': 1, 'e': 1}
+matchCache: ['quite']
+chosen word for guess 4: quite
+__________________________________
+GUESS 4
+🟩🟩🟩🟩🟩
+['q', 'u', 'i', 't', 'e']
+Good letters: ['u', 'e', 't', 'i', 'q']
+Good letters but wrong spots : [[], [], ['t'], ['i'], []]
+Bad  letters : ['s', 'a', 'v', 'b', 'd', 'g', 'c']
+possible words after guess 4: quite, 1
+['quite']
+Common letters: {'q': 1, 'u': 1, 'i': 1, 't': 1, 'e': 1}
+Best 5 letters(5 matching): {'q': 1, 'u': 1, 'i': 1, 't': 1, 'e': 1}
+Best letters per spot {0: {'q': 1}, 1: {'u': 1}, 2: {'i': 1}, 3: {'t': 1}, 4: {'e': 1}}
+Best 5 letters per spot(5 matching) [{'q': 1}, {'u': 1}, {'i': 1}, {'t': 1}, {'e': 1}]
+match cache 2 filtered ['quite']
+Common letters: {'q': 1, 'u': 1, 'i': 1, 't': 1, 'e': 1}
+matchCache: ['quite']
+word found after 4 guesses: quite

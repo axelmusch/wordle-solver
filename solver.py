@@ -1,5 +1,6 @@
 import random
 import time
+import os
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -8,12 +9,26 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from pyautogui import press, typewrite
 
+RESULTS_FOLDER = "results/"
+RESULTS_FOLDER_TEMP = "results_temp/"
+filename = datetime.today().strftime('%d%m%y')+ ".txt"
+
+if not os.path.exists(RESULTS_FOLDER):
+    os.makedirs(RESULTS_FOLDER)
+if not os.path.exists(RESULTS_FOLDER_TEMP):
+    os.makedirs(RESULTS_FOLDER_TEMP)
+
+if not os.path.exists(RESULTS_FOLDER + filename):
+    filename = RESULTS_FOLDER + datetime.today().strftime('%d%m%y')+ ".txt"
+else:
+    filename = RESULTS_FOLDER_TEMP + datetime.today().strftime('%d%m%y')+ ".txt"
+
 options  = Options()
 options.add_argument("window-size=1200,1400")
 driver = webdriver.Chrome(options=options,service=Service(ChromeDriverManager().install()))
 driver.get("https://www.nytimes.com/games/wordle/index.html")
 
-filename = "results/" + datetime.today().strftime('%d%m%y')+ ".txt"
+
 resultFile = open(filename , "w",encoding="utf-8")
 resultFile.write("")
 resultFile.close()
@@ -217,7 +232,7 @@ for guessCount in range(1, 7):
  
     newguess = random.choice(matchCache2)
     if CORRECT_LETTERS == 5:
-        print_to_file(f"word found after {guessCount} guesses: ", newguess)
+        print_to_file(f"word found after {guessCount} guesses: {newguess}" )
         
         time.sleep(10)
         break
