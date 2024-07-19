@@ -1,0 +1,68 @@
+__________________________________
+GUESS 1
+⬛⬛⬛⬛🟨
+['-', '-', '-', '-', '-']
+Good letters: ['e']
+Good letters but wrong spots : [[], [], [], [], ['e']]
+Bad  letters : ['s', 'u', 'a', 'v']
+possible words after guess 1: suave, 265
+['beech', 'beefy', 'befit', 'beget', 'begin', 'being', 'belch', 'belly', 'below', 'bench', 'beret', 'berry', 'berth', 'betel', 'bezel', 'bicep', 'bleed', 'bleep', 'blend', 'boney', 'bowel', 'boxer', 'breed', 'brief', 'cello', 'check', 'cheek', 'cheer', 'chief', 'cider', 'cleft', 'clerk', 'comet', 'corer', 'cower', 'credo', 'creed', 'creek', 'creep', 'crept', 'cried', 'crier', 'cyber', 'debit', 'decor', 'decoy', 'decry', 'defer', 'deign', 'deity', 'demon', 'denim', 'depot', 'depth', 'derby', 'deter', 'detox', 'dicey', 'diner', 'dopey', 'dowel', 'dozen', 'dried', 'drier', 'dryer', 'dwell', 'dwelt', 'ebony', 'edict', 'edify', 'egret', 'eight', 'eject', 'eking', 'elbow', 'elder', 'elect', 'elegy', 'elfin', 'embed', 'ember', 'empty', 'endow', 'enemy', 'enjoy', 'enter', 'entry', 'epoch', 'epoxy', 'erect', 'error', 'ether', 'ethic', 'excel', 'exert', 'expel', 'extol', 'eying', 'feign', 'felon', 'ferry', 'fetch', 'fetid', 'fewer', 'fiber', 'field', 'fiend', 'fiery', 'filer', 'filet', 'finer', 'fixer', 'fleck', 'fleet', 'flier', 'flyer', 'foyer', 'freed', 'freer', 'fried', 'gecko', 'geeky', 'golem', 'goner', 'gooey', 'greed', 'green', 'greet', 'grief', 'hefty', 'helix', 'hello', 'heron', 'homer', 'honey', 'hotel', 'hymen', 'hyper', 'idler', 'impel', 'index', 'inept', 'inert', 'infer', 'inlet', 'inner', 'inter', 'jelly', 'jerky', 'jetty', 'jewel', 'joker', 'kneed', 'kneel', 'knelt', 'leech', 'leery', 'lefty', 'leggy', 'lemon', 'leper', 'libel', 'liken', 'linen', 'liner', 'lower', 'medic', 'melon', 'mercy', 'merit', 'merry', 'meter', 'metro', 'miner', 'model', 'modem', 'money', 'motel', 'mower', 'needy', 'neigh', 'nerdy', 'newer', 'newly', 'nicer', 'octet', 'odder', 'offer', 'often', 'olden', 'older', 'order', 'other', 'otter', 'owner', 'penny', 'perch', 'peril', 'perky', 'petty', 'piety', 'piney', 'piper', 'pixel', 'plied', 'plier', 'poker', 'power', 'preen', 'pried', 'rebel', 'reedy', 'refer', 'refit', 'reign', 'relic', 'remit', 'renew', 'repel', 'reply', 'retch', 'retro', 'retry', 'rider', 'ripen', 'riper', 'rodeo', 'roger', 'rower', 'teddy', 'teeth', 'tempo', 'tenet', 'tenor', 'tenth', 'tepid', 'theft', 'their', 'thief', 'threw', 'tiger', 'timer', 'token', 'totem', 'towel', 'tower', 'trend', 'tried', 'tweed', 'tweet', 'weedy', 'weigh', 'weird', 'welch', 'wench', 'wheel', 'whelp', 'widen', 'wider', 'wield', 'woken', 'women', 'wooer', 'wreck', 'yield']
+Common letters: {'b': 34, 'e': 324, 'c': 49, 'h': 39, 'f': 41, 'y': 54, 'i': 83, 't': 88, 'g': 26, 'n': 72, 'l': 79, 'o': 74, 'w': 37, 'r': 144, 'z': 2, 'p': 38, 'd': 73, 'x': 11, 'k': 19, 'm': 31, 'j': 7}
+Best 5 letters(4 matching): {'e': 324, 'r': 144, 't': 88, 'i': 83, 'l': 79}
+Best letters per spot {0: {'f': 3, 'i': 4, 'l': 1, 'm': 1, 'p': 2, 'r': 3, 't': 4}, 1: {'i': 5, 'l': 2, 'd': 1, 'n': 3, 'e': 5, 'h': 1, 'r': 1}, 2: {'l': 5, 'i': 3, 'e': 2, 't': 1, 'n': 1, 'r': 2, 'f': 1, 'm': 2, 'g': 1}, 3: {'e': 11, 'r': 1, 'i': 6}, 4: {'r': 9, 't': 6, 'l': 1, 'c': 1, 'd': 1}}
+Best 5 letters per spot(4 matching) [{'i': 4}, {'i': 5}, {'l': 5}, {'e': 11}, {'r': 9}]
+match cache 2 filtered ['filer', 'idler']
+Common letters: {'b': 34, 'e': 324, 'c': 49, 'h': 39, 'f': 41, 'y': 54, 'i': 83, 't': 88, 'g': 26, 'n': 72, 'l': 79, 'o': 74, 'w': 37, 'r': 144, 'z': 2, 'p': 38, 'd': 73, 'x': 11, 'k': 19, 'm': 31, 'j': 7}
+matchCache: ['filer', 'filet', 'flier', 'idler', 'inert', 'inlet', 'inter', 'liner', 'merit', 'peril', 'plier', 'refit', 'relic', 'remit', 'their', 'tiger', 'timer', 'tried']
+chosen word for guess 2: idler
+__________________________________
+GUESS 2
+⬛🟨⬛🟨🟨
+['-', '-', '-', '-', '-']
+Good letters: ['e', 'd', 'r']
+Good letters but wrong spots : [[], ['d'], [], ['e'], ['e', 'r']]
+Bad  letters : ['s', 'u', 'a', 'v', 'i', 'l']
+possible words after guess 2: idler, 6
+['credo', 'decry', 'derby', 'nerdy', 'reedy', 'trend']
+Common letters: {'c': 2, 'r': 6, 'e': 7, 'd': 6, 'o': 1, 'y': 4, 'b': 1, 'n': 2, 't': 1}
+Best 5 letters(5 matching): {'e': 7, 'r': 6, 'd': 6, 'y': 4, 'c': 2}
+Best letters per spot {0: {'d': 1}, 1: {'e': 1}, 2: {'c': 1}, 3: {'r': 1}, 4: {'y': 1}}
+Best 5 letters per spot(5 matching) [{'d': 1}, {'e': 1}, {'c': 1}, {'r': 1}, {'y': 1}]
+match cache 2 filtered ['decry']
+Common letters: {'c': 2, 'r': 6, 'e': 7, 'd': 6, 'o': 1, 'y': 4, 'b': 1, 'n': 2, 't': 1}
+matchCache: ['decry']
+chosen word for guess 3: decry
+__________________________________
+GUESS 3
+🟨🟩⬛🟨🟩
+['-', 'e', '-', '-', 'y']
+Good letters: ['e', 'd', 'r', 'y']
+Good letters but wrong spots : [['d'], ['d'], [], ['e', 'r'], ['e', 'r']]
+Bad  letters : ['s', 'u', 'a', 'v', 'i', 'l', 'c']
+possible words after guess 3: decry, 2
+['nerdy', 'reedy']
+Common letters: {'n': 1, 'e': 3, 'r': 2, 'd': 2, 'y': 2}
+Best 5 letters(5 matching): {'e': 3, 'r': 2, 'd': 2, 'y': 2, 'n': 1}
+Best letters per spot {0: {'n': 1}, 1: {'e': 1}, 2: {'r': 1}, 3: {'d': 1}, 4: {'y': 1}}
+Best 5 letters per spot(5 matching) [{'n': 1}, {'e': 1}, {'r': 1}, {'d': 1}, {'y': 1}]
+match cache 2 filtered ['nerdy']
+Common letters: {'n': 1, 'e': 3, 'r': 2, 'd': 2, 'y': 2}
+matchCache: ['nerdy']
+chosen word for guess 4: nerdy
+__________________________________
+GUESS 4
+🟩🟩🟩🟩🟩
+['n', 'e', 'r', 'd', 'y']
+Good letters: ['e', 'd', 'r', 'y', 'n']
+Good letters but wrong spots : [['d'], ['d'], [], ['e', 'r'], ['e', 'r']]
+Bad  letters : ['s', 'u', 'a', 'v', 'i', 'l', 'c']
+possible words after guess 4: nerdy, 1
+['nerdy']
+Common letters: {'n': 1, 'e': 1, 'r': 1, 'd': 1, 'y': 1}
+Best 5 letters(5 matching): {'n': 1, 'e': 1, 'r': 1, 'd': 1, 'y': 1}
+Best letters per spot {0: {'n': 1}, 1: {'e': 1}, 2: {'r': 1}, 3: {'d': 1}, 4: {'y': 1}}
+Best 5 letters per spot(5 matching) [{'n': 1}, {'e': 1}, {'r': 1}, {'d': 1}, {'y': 1}]
+match cache 2 filtered ['nerdy']
+Common letters: {'n': 1, 'e': 1, 'r': 1, 'd': 1, 'y': 1}
+matchCache: ['nerdy']
+word found after 4 guesses: nerdy

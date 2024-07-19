@@ -33,7 +33,7 @@ resultFile = open(filename , "w",encoding="utf-8")
 resultFile.write("")
 resultFile.close()
 
-time.sleep(4)
+time.sleep(2)
 search_box = driver.find_element(By.XPATH,'//button[@data-testid="Accept all-btn"]').click()
 time.sleep(0.25)
 search_box = driver.find_element(By.XPATH,'//button[@data-testid="Play"]').click()
@@ -195,7 +195,7 @@ for guessCount in range(1, 7):
     print_to_file(f"Best 5 letters({maxMatch} matching): {bestletters}")
 
     matchCache = [word['word'] for word in matchCache if word['matching'] == maxMatch]
-
+    print_to_file(f"match cache 1 filtered {matchCache}")
     commonlettersSpot = {0:{},1:{},2:{},3:{},4:{}}
     for word in matchCache:
         for index, letter in enumerate(word):
