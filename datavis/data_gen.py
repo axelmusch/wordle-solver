@@ -41,7 +41,6 @@ for word in temp_words:
     #TODO: check every word with the other words for 'fitness' of current word
     results[word] = dict()
     results_scores = dict()
-    results_points = 0
     print(f"Analyzing {word}...")
     for checkingword in words:
         word_result = ""
@@ -49,38 +48,37 @@ for word in temp_words:
         for index,letter in enumerate(word):
             if letter == checkingword[index]:
                 word_result += "2"
-                results_points += 2
                 word_result_visual += "🟩"
             elif letter in checkingword:
                 word_result += "1"
-                results_points += 1
                 word_result_visual += "🟨"
             else:
                 word_result += "0"
-                results_points += 0
                 word_result_visual += "⬛"
         #print(f"Result for {word} with {checkingword}: {word_result}")
         if word_result in results_scores :
-            results_scores[word_result] += 1
+            results_scores[word_result]["value"] += 1
+            results_scores[word_result]["next_guesses"].append(checkingword)
         else:
-            results_scores[word_result] = 1
-    sorted_keys = dict(sorted(results_scores.items(), key=lambda item: item[1],reverse=True))
+            
+            results_scores[word_result] = {"value":1, "next_guesses":[checkingword]}
+
+    sorted_keys = dict(sorted(results_scores.items(), key=lambda item: item[1]["value"],reverse=True))
     total_infomation = 0
     
   
     probs = []
     for key in sorted_keys:
-        t = sorted_keys[key] / words_count
+        t = sorted_keys[key]["value"] / words_count
         probs.append(t)
 
         
     avg = shannon_entropy(probs)
    # print(probs)
     print(f"shannon thing: {avg}")
-    results[word]["points"] = results_points
-    results[word]["avg"] = avg
-    results[word]["scores"] = sorted_keys
-sorted_results = dict(sorted(results.items(),key=lambda x: (x[1]['avg']),reverse=True))
+    results[word]["score"] = avg
+    results[word]["patterns"] = sorted_keys
+sorted_results = dict(sorted(results.items(),key=lambda x: (x[1]['score']),reverse=True))
 results = sorted_results
 #print(results)
 result_to_json(results)
