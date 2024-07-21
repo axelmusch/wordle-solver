@@ -90,7 +90,7 @@ square_array = list()
 
 for guessCount in range(1, 7):
     print_to_file('__________________________________')
-    print_to_file(f"GUESS {guessCount}")
+    print_to_file(f"GUESS {guessCount}: {GUESS1}")
     typewrite(GUESS1)
     time.sleep(0.5)
     press('enter')
@@ -180,8 +180,16 @@ for guessCount in range(1, 7):
             else:
                 commonletters[key] =1
     print_to_file(f"Common letters: {commonletters}")
-    bestletters = pick_highest(commonletters,5)
-
+    
+    
+    for x in range(5,0,-1):
+        bestletters = pick_highest(commonletters,x)
+        if bestletters != False:
+            break
+     
+        
+    print(f"BEST LETTTERS {bestletters}")
+    
     matchCache = list()
     maxMatch = 0
     for word in newlist:
@@ -227,9 +235,6 @@ for guessCount in range(1, 7):
     matchCache2 = [word['word'] for word in matchCache2 if word['matching'] == maxMatch2]
     print_to_file(f"match cache 2 filtered {matchCache2}")
 
-    print_to_file(f"Common letters: {str(commonletters)}", False)
-    print_to_file(f"matchCache: {str(matchCache)}", False)
- 
     newguess = random.choice(matchCache2)
     if CORRECT_LETTERS == 5:
         print_to_file(f"word found after {guessCount} guesses: {newguess}" )

@@ -1,0 +1,64 @@
+__________________________________
+GUESS 1: suave
+🟩⬛⬛⬛🟨
+['s', '-', '-', '-', '-']
+Good letters: ['s', 'e']
+Good letters but wrong spots : [[], [], [], [], ['e']]
+Bad  letters : ['u', 'a', 'v']
+possible words after guess 1: suave, 46
+['scent', 'screw', 'seedy', 'semen', 'serif', 'sewer', 'sheen', 'sheep', 'sheer', 'sheet', 'sheik', 'shelf', 'shell', 'shied', 'shrew', 'sinew', 'siren', 'skier', 'sleek', 'sleep', 'sleet', 'slept', 'smell', 'smelt', 'sneer', 'sober', 'sower', 'speck', 'speed', 'spell', 'spelt', 'spend', 'spent', 'sperm', 'spied', 'spiel', 'steed', 'steel', 'steep', 'steer', 'stein', 'stern', 'sweep', 'sweet', 'swell', 'swept']
+Common letters: {'s': 46, 'c': 3, 'e': 64, 'n': 10, 't': 15, 'r': 13, 'w': 9, 'd': 6, 'y': 1, 'm': 4, 'i': 9, 'f': 2, 'h': 9, 'p': 15, 'k': 4, 'l': 17, 'o': 2, 'b': 1}
+Best 5 letters(5 matching): {'e': 64, 's': 46, 'l': 17, 't': 15, 'p': 15}
+match cache 1 filtered ['slept', 'spelt']
+Best letters per spot {0: {'s': 2}, 1: {'l': 1, 'p': 1}, 2: {'e': 2}, 3: {'p': 1, 'l': 1}, 4: {'t': 2}}
+Best 5 letters per spot(5 matching) [{'s': 2}, {'l': 1}, {'e': 2}, {'p': 1}, {'t': 2}]
+match cache 2 filtered ['slept']
+chosen word for guess 2: slept
+__________________________________
+GUESS 2: slept
+🟩⬛🟩🟨⬛
+['s', '-', 'e', '-', '-']
+Good letters: ['s', 'e', 'p']
+Good letters but wrong spots : [[], [], [], ['p'], ['e']]
+Bad  letters : ['u', 'a', 'v', 'l', 't']
+possible words after guess 2: slept, 6
+['sheep', 'speck', 'speed', 'spend', 'sperm', 'sweep']
+Common letters: {'s': 6, 'h': 1, 'e': 9, 'p': 6, 'c': 1, 'k': 1, 'd': 2, 'n': 1, 'r': 1, 'm': 1, 'w': 1}
+Best 5 letters(4 matching): {'e': 9, 's': 6, 'p': 6, 'd': 2, 'h': 1}
+match cache 1 filtered ['sheep', 'speed', 'spend']
+Best letters per spot {0: {'s': 3}, 1: {'h': 1, 'p': 2}, 2: {'e': 3}, 3: {'e': 2, 'n': 1}, 4: {'p': 1, 'd': 2}}
+Best 5 letters per spot(5 matching) [{'s': 3}, {'p': 2}, {'e': 3}, {'e': 2}, {'d': 2}]
+match cache 2 filtered ['speed']
+chosen word for guess 3: speed
+__________________________________
+GUESS 3: speed
+🟩🟩🟩⬛⬛
+['s', 'p', 'e', '-', '-']
+Good letters: ['s', 'e', 'p']
+Good letters but wrong spots : [[], [], [], ['p'], ['e']]
+Bad  letters : ['u', 'a', 'v', 'l', 't', 'd']
+possible words after guess 3: speed, 2
+['speck', 'sperm']
+Common letters: {'s': 2, 'p': 2, 'e': 2, 'c': 1, 'k': 1, 'r': 1, 'm': 1}
+Best 5 letters(5 matching): {'s': 2, 'p': 2, 'e': 2, 'c': 1, 'k': 1}
+match cache 1 filtered ['speck']
+Best letters per spot {0: {'s': 1}, 1: {'p': 1}, 2: {'e': 1}, 3: {'c': 1}, 4: {'k': 1}}
+Best 5 letters per spot(5 matching) [{'s': 1}, {'p': 1}, {'e': 1}, {'c': 1}, {'k': 1}]
+match cache 2 filtered ['speck']
+chosen word for guess 4: speck
+__________________________________
+GUESS 4: speck
+🟩🟩🟩🟩🟩
+['s', 'p', 'e', 'c', 'k']
+Good letters: ['s', 'e', 'p', 'c', 'k']
+Good letters but wrong spots : [[], [], [], ['p'], ['e']]
+Bad  letters : ['u', 'a', 'v', 'l', 't', 'd']
+possible words after guess 4: speck, 1
+['speck']
+Common letters: {'s': 1, 'p': 1, 'e': 1, 'c': 1, 'k': 1}
+Best 5 letters(5 matching): {'s': 1, 'p': 1, 'e': 1, 'c': 1, 'k': 1}
+match cache 1 filtered ['speck']
+Best letters per spot {0: {'s': 1}, 1: {'p': 1}, 2: {'e': 1}, 3: {'c': 1}, 4: {'k': 1}}
+Best 5 letters per spot(5 matching) [{'s': 1}, {'p': 1}, {'e': 1}, {'c': 1}, {'k': 1}]
+match cache 2 filtered ['speck']
+word found after 4 guesses: speck
