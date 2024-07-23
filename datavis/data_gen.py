@@ -128,13 +128,13 @@ def generate_data(words=ALL_WORDS):
                 #sorted_keys_2[word_2]["score"] = avg
                 results_scores_2[word_2] = avg
             results_scores_2 = dict(sorted(results_scores_2.items(), key=lambda item: item[1],reverse=True))
-            results_scores_2 = {k: results_scores_2[k] for k in list(results_scores_2)}
+            results_scores_2 = {k: results_scores_2[k] for k in list(results_scores_2)[:10]}
             to_return[word]["patterns"][pattern]["next_guesses"] = results_scores_2
 
     return to_return
 
 
-temp_words = ['soare']
+temp_words = ['suave']
 results = generate_data(temp_words)
 
 
@@ -142,7 +142,7 @@ sorted_results = dict(sorted(results.items(),key=lambda x: (x[1]['score']),rever
 #sorted_scores = dict(sorted(results_all.items(),key=lambda x: x[1],reverse=True))
 results = sorted_results
 #print(results)
-result_to_json(results)
+result_to_json(results,"sample_suave")
 
 
 """ #results_all = dict()

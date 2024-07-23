@@ -1,0 +1,4 @@
+plotly==5.22.0
+PyAutoGUI==0.9.54
+selenium==4.23.0
+webdriver_manager==4.0.1

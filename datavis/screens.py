@@ -2,8 +2,8 @@ import plotly.graph_objects as go
 import json
 
 # Opening JSON file
-f = open('./datavis/sample2.json')
-word_to_show = "slate"
+f = open('./datavis/sample_suave.json')
+word_to_show = "suave"
 # returns JSON object as 
 # a dictionary
 data = json.load(f)
@@ -24,8 +24,8 @@ for pattern in data[word_to_show]["patterns"]:
             res += "⬛"
             
     x.append(res)
-    y.append(data[word_to_show]["patterns"][pattern]["value"])
-    hover_text.append(f"Probability: {round((int(data[word_to_show]["patterns"][pattern]["value"])/2315)*100,2)}%" )
+    y.append(data[word_to_show]["patterns"][pattern]["total"])
+    hover_text.append(f"Probability: {round((int(data[word_to_show]["patterns"][pattern]["total"])/2315)*100,2)}%" )
 
 # Closing file
 f.close()
