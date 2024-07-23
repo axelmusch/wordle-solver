@@ -1,0 +1,48 @@
+__________________________________
+GUESS 1: suave
+⬛⬛⬛⬛⬛
+['-', '-', '-', '-', '-']
+Good letters: []
+Good letters but wrong spots : [[], [], [], [], []]
+Bad  letters : ['s', 'u', 'a', 'v', 'e']
+possible words after guess 1: suave, 305
+['biddy', 'bigot', 'billy', 'bingo', 'birch', 'birth', 'bitty', 'blimp', 'blind', 'blink', 'blitz', 'block', 'blond', 'blood', 'bloom', 'blown', 'bobby', 'bongo', 'booby', 'booth', 'booty', 'boozy', 'botch', 'brick', 'bring', 'brink', 'briny', 'broil', 'brood', 'brook', 'broom', 'broth', 'brown', 'chick', 'child', 'chili', 'chill', 'chirp', 'chock', 'choir', 'chord', 'cinch', 'click', 'cliff', 'climb', 'cling', 'clink', 'clock', 'cloth', 'clown', 'colon', 'color', 'comfy', 'comic', 'conch', 'condo', 'conic', 'corny', 'coyly', 'crick', 'crimp', 'crock', 'crony', 'crook', 'crowd', 'crown', 'crypt', 'cynic', 'digit', 'dilly', 'dimly', 'dingo', 'dingy', 'dirty', 'ditch', 'ditto', 'ditty', 'dizzy', 'dodgy', 'doing', 'dolly', 'donor', 'dowdy', 'downy', 'dowry', 'drift', 'drill', 'drink', 'droit', 'droll', 'drool', 'droop', 'drown', 'dryly', 'dying', 'fifth', 'fifty', 'fight', 'filly', 'filmy', 'filth', 'finch', 'fizzy', 'fjord', 'flick', 'fling', 'flint', 'flirt', 'flock', 'flood', 'floor', 'flown', 'foggy', 'folio', 'folly', 'forgo', 'forth', 'forty', 'frill', 'fritz', 'frock', 'frond', 'front', 'froth', 'frown', 'giddy', 'girly', 'girth', 'glint', 'gloom', 'glory', 'glyph', 'godly', 'going', 'golly', 'goody', 'goofy', 'grill', 'grimy', 'grind', 'groin', 'groom', 'growl', 'grown', 'hilly', 'hippo', 'hippy', 'hitch', 'hobby', 'holly', 'honor', 'horny', 'hotly', 'howdy', 'hydro', 'icily', 'icing', 'idiom', 'idiot', 'idyll', 'igloo', 'imply', 'inbox', 'ingot', 'intro', 'ionic', 'irony', 'itchy', 'jiffy', 'joint', 'jolly', 'kinky', 'kitty', 'knock', 'knoll', 'known', 'krill', 'light', 'limbo', 'limit', 'lingo', 'lipid', 'lobby', 'lofty', 'logic', 'login', 'loopy', 'lorry', 'lowly', 'lying', 'lymph', 'lynch', 'lyric', 'micro', 'might', 'milky', 'mimic', 'minim', 'minor', 'minty', 'mirth', 'moldy', 'month', 'moody', 'moron', 'morph', 'motif', 'motor', 'motto', 'myrrh', 'night', 'ninny', 'ninth', 'nobly', 'north', 'notch', 'nylon', 'nymph', 'oddly', 'onion', 'optic', 'orbit', 'owing', 'phony', 'photo', 'picky', 'piggy', 'pilot', 'pinch', 'pinky', 'pinto', 'pitch', 'pithy', 'point', 'polyp', 'pooch', 'poppy', 'porch', 'prick', 'primo', 'print', 'prior', 'prong', 'proof', 'prowl', 'proxy', 'pygmy', 'rhino', 'right', 'rigid', 'rigor', 'robin', 'robot', 'rocky', 'roomy', 'rotor', 'rowdy', 'thick', 'thigh', 'thing', 'think', 'third', 'thong', 'thorn', 'throb', 'throw', 'tight', 'timid', 'toddy', 'tonic', 'tooth', 'topic', 'torch', 'toxic', 'toxin', 'trick', 'troll', 'troop', 'twirl', 'twixt', 'tying', 'which', 'whiff', 'whiny', 'whirl', 'whoop', 'widow', 'width', 'wight', 'willy', 'wimpy', 'winch', 'windy', 'witch', 'witty', 'woody', 'wooly', 'woozy', 'wordy', 'world', 'worry', 'worth', 'wring', 'wrong', 'wryly']
+Common letters: {'b': 48, 'i': 180, 'd': 69, 'y': 108, 'g': 62, 'o': 221, 't': 102, 'l': 116, 'n': 101, 'r': 119, 'c': 84, 'h': 84, 'm': 42, 'p': 48, 'k': 33, 'z': 8, 'w': 47, 'f': 44, 'j': 4, 'x': 5}
+Best 5 letters(4 matching): {'o': 221, 'i': 180, 'r': 119, 'l': 116, 'y': 108}
+match cache 1 filtered ['broil', 'girly', 'glory', 'irony', 'lorry', 'lyric']
+Best letters per spot {0: {'b': 1, 'g': 2, 'i': 1, 'l': 2}, 1: {'r': 2, 'i': 1, 'l': 1, 'o': 1, 'y': 1}, 2: {'o': 3, 'r': 3}, 3: {'i': 2, 'l': 1, 'r': 2, 'n': 1}, 4: {'l': 1, 'y': 4, 'c': 1}}
+Best 5 letters per spot(3 matching) [{'g': 2}, {'r': 2}, {'o': 3}, {'i': 2}, {'y': 4}]
+match cache 2 filtered ['broil', 'glory', 'irony']
+chosen word for guess 2: glory
+__________________________________
+GUESS 2: glory
+🟨⬛🟩🟨⬛
+['-', '-', 'o', '-', '-']
+Good letters: ['g', 'o', 'r']
+Good letters but wrong spots : [['g'], [], [], ['r'], []]
+Bad  letters : ['s', 'u', 'a', 'v', 'e', 'l', 'y']
+possible words after guess 2: glory, 2
+['prong', 'wrong']
+Common letters: {'p': 1, 'r': 2, 'o': 2, 'n': 2, 'g': 2, 'w': 1}
+Best 5 letters(5 matching): {'r': 2, 'o': 2, 'n': 2, 'g': 2, 'p': 1}
+match cache 1 filtered ['prong']
+Best letters per spot {0: {'p': 1}, 1: {'r': 1}, 2: {'o': 1}, 3: {'n': 1}, 4: {'g': 1}}
+Best 5 letters per spot(5 matching) [{'p': 1}, {'r': 1}, {'o': 1}, {'n': 1}, {'g': 1}]
+match cache 2 filtered ['prong']
+chosen word for guess 3: prong
+__________________________________
+GUESS 3: prong
+🟩🟩🟩🟩🟩
+['p', 'r', 'o', 'n', 'g']
+Good letters: ['g', 'o', 'r', 'p', 'n']
+Good letters but wrong spots : [['g'], [], [], ['r'], []]
+Bad  letters : ['s', 'u', 'a', 'v', 'e', 'l', 'y']
+possible words after guess 3: prong, 1
+['prong']
+Common letters: {'p': 1, 'r': 1, 'o': 1, 'n': 1, 'g': 1}
+Best 5 letters(5 matching): {'p': 1, 'r': 1, 'o': 1, 'n': 1, 'g': 1}
+match cache 1 filtered ['prong']
+Best letters per spot {0: {'p': 1}, 1: {'r': 1}, 2: {'o': 1}, 3: {'n': 1}, 4: {'g': 1}}
+Best 5 letters per spot(5 matching) [{'p': 1}, {'r': 1}, {'o': 1}, {'n': 1}, {'g': 1}]
+match cache 2 filtered ['prong']
+word found after 3 guesses: prong
