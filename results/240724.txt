@@ -1,0 +1,80 @@
+__________________________________
+GUESS 1: suave
+⬛⬛⬛⬛🟩
+['-', '-', '-', '-', 'e']
+Good letters: ['e']
+Good letters but wrong spots : [[], [], [], [], []]
+Bad  letters : ['s', 'u', 'a', 'v']
+possible words after guess 1: suave, 108
+['belie', 'belle', 'bible', 'bilge', 'binge', 'biome', 'bloke', 'booze', 'borne', 'bribe', 'bride', 'brine', 'broke', 'chide', 'chime', 'choke', 'chore', 'clone', 'creme', 'crepe', 'crime', 'crone', 'cycle', 'diode', 'dirge', 'dodge', 'drone', 'eerie', 'elide', 'elite', 'elope', 'emcee', 'erode', 'exile', 'femme', 'fence', 'fibre', 'force', 'forge', 'forte', 'froze', 'genie', 'genre', 'glide', 'globe', 'gnome', 'gorge', 'grime', 'gripe', 'grope', 'hedge', 'hence', 'hinge', 'horde', 'knife', 'ledge', 'liege', 'lithe', 'lodge', 'melee', 'merge', 'midge', 'mince', 'niche', 'niece', 'noble', 'ombre', 'opine', 'oxide', 'ozone', 'pence', 'penne', 'phone', 'piece', 'pixie', 'price', 'pride', 'prime', 'prize', 'probe', 'prone', 'rhyme', 'ridge', 'rifle', 'tepee', 'theme', 'there', 'three', 'thyme', 'tilde', 'tithe', 'title', 'tribe', 'trice', 'tripe', 'trite', 'trope', 'twice', 'twine', 'wedge', 'where', 'while', 'whine', 'white', 'whole', 'wince', 'write', 'wrote']
+Common letters: {'b': 21, 'e': 143, 'l': 25, 'i': 55, 'g': 24, 'n': 27, 'o': 37, 'm': 18, 'k': 4, 'z': 4, 'r': 46, 'd': 21, 'c': 24, 'h': 22, 'p': 19, 'y': 3, 't': 24, 'x': 3, 'f': 9, 'w': 11}
+Best 5 letters(4 matching): {'e': 143, 'i': 55, 'r': 46, 'o': 37, 'n': 27}
+match cache 1 filtered ['borne', 'brine', 'crone', 'drone', 'opine', 'prone']
+Best letters per spot {0: {'b': 2, 'c': 1, 'd': 1, 'o': 1, 'p': 1}, 1: {'o': 1, 'r': 4, 'p': 1}, 2: {'r': 1, 'i': 2, 'o': 3}, 3: {'n': 6}, 4: {'e': 6}}
+Best 5 letters per spot(4 matching) [{'b': 2}, {'r': 4}, {'o': 3}, {'n': 6}, {'e': 6}]
+match cache 2 filtered ['brine', 'crone', 'drone', 'prone']
+chosen word for guess 2: prone
+__________________________________
+GUESS 2: prone
+⬛🟨🟨⬛🟩
+['-', '-', '-', '-', 'e']
+Good letters: ['e', 'r', 'o']
+Good letters but wrong spots : [[], ['r'], ['o'], [], []]
+Bad  letters : ['s', 'u', 'a', 'v', 'p', 'n']
+possible words after guess 2: prone, 6
+['force', 'forge', 'forte', 'gorge', 'horde', 'ombre']
+Common letters: {'f': 3, 'o': 6, 'r': 6, 'c': 1, 'e': 6, 'g': 3, 't': 1, 'h': 1, 'd': 1, 'm': 1, 'b': 1}
+Best 5 letters(5 matching): {'o': 6, 'r': 6, 'e': 6, 'f': 3, 'g': 3}
+match cache 1 filtered ['forge']
+Best letters per spot {0: {'f': 1}, 1: {'o': 1}, 2: {'r': 1}, 3: {'g': 1}, 4: {'e': 1}}
+Best 5 letters per spot(5 matching) [{'f': 1}, {'o': 1}, {'r': 1}, {'g': 1}, {'e': 1}]
+match cache 2 filtered ['forge']
+chosen word for guess 3: forge
+__________________________________
+GUESS 3: forge
+🟩🟩🟩⬛🟩
+['f', 'o', 'r', '-', 'e']
+Good letters: ['e', 'r', 'o', 'f']
+Good letters but wrong spots : [[], ['r'], ['o'], [], []]
+Bad  letters : ['s', 'u', 'a', 'v', 'p', 'n', 'g']
+possible words after guess 3: forge, 2
+['force', 'forte']
+Common letters: {'f': 2, 'o': 2, 'r': 2, 'c': 1, 'e': 2, 't': 1}
+Best 5 letters(5 matching): {'f': 2, 'o': 2, 'r': 2, 'e': 2, 'c': 1}
+match cache 1 filtered ['force']
+Best letters per spot {0: {'f': 1}, 1: {'o': 1}, 2: {'r': 1}, 3: {'c': 1}, 4: {'e': 1}}
+Best 5 letters per spot(5 matching) [{'f': 1}, {'o': 1}, {'r': 1}, {'c': 1}, {'e': 1}]
+match cache 2 filtered ['force']
+chosen word for guess 4: force
+__________________________________
+GUESS 4: force
+🟩🟩🟩⬛🟩
+['f', 'o', 'r', '-', 'e']
+Good letters: ['e', 'r', 'o', 'f']
+Good letters but wrong spots : [[], ['r'], ['o'], [], []]
+Bad  letters : ['s', 'u', 'a', 'v', 'p', 'n', 'g', 'c']
+possible words after guess 4: force, 1
+['forte']
+Common letters: {'f': 1, 'o': 1, 'r': 1, 't': 1, 'e': 1}
+Best 5 letters(5 matching): {'f': 1, 'o': 1, 'r': 1, 't': 1, 'e': 1}
+match cache 1 filtered ['forte']
+Best letters per spot {0: {'f': 1}, 1: {'o': 1}, 2: {'r': 1}, 3: {'t': 1}, 4: {'e': 1}}
+Best 5 letters per spot(5 matching) [{'f': 1}, {'o': 1}, {'r': 1}, {'t': 1}, {'e': 1}]
+match cache 2 filtered ['forte']
+chosen word for guess 5: forte
+__________________________________
+GUESS 5: forte
+🟩🟩🟩🟩🟩
+['f', 'o', 'r', 't', 'e']
+Good letters: ['e', 'r', 'o', 'f', 't']
+Good letters but wrong spots : [[], ['r'], ['o'], [], []]
+Bad  letters : ['s', 'u', 'a', 'v', 'p', 'n', 'g', 'c']
+possible words after guess 5: forte, 1
+['forte']
+Common letters: {'f': 1, 'o': 1, 'r': 1, 't': 1, 'e': 1}
+Best 5 letters(5 matching): {'f': 1, 'o': 1, 'r': 1, 't': 1, 'e': 1}
+match cache 1 filtered ['forte']
+Best letters per spot {0: {'f': 1}, 1: {'o': 1}, 2: {'r': 1}, 3: {'t': 1}, 4: {'e': 1}}
+Best 5 letters per spot(5 matching) [{'f': 1}, {'o': 1}, {'r': 1}, {'t': 1}, {'e': 1}]
+match cache 2 filtered ['forte']
+word found after 5 guesses: forte
